@@ -35,8 +35,8 @@ echo -e $YELLOW"[Kali-cleaner]:Removing old kernels..."$ENDCOLOR
 sudo aptitude purge $OLDKERNELS
  
 echo -e $YELLOW"[Kali-cleaner]:Emptying every trashes..."$ENDCOLOR
-rm -rf /home/*/.local/share/Trash/*/** &> /dev/null
-rm -rf /root/.local/share/Trash/*/** &> /dev/null
+rm -rf /home/*/.local/share/Trash/* &> /dev/null
+rm -rf /root/.local/share/Trash/* &> /dev/null
  
 echo -e $YELLOW"[Kali-cleaner]:Script Finished!"$ENDCOLOR
 echo -e
