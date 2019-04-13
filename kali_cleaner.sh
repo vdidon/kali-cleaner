@@ -34,6 +34,10 @@ sudo aptitude purge $OLDKERNELS
 echo -e $YELLOW"[Kali-cleaner]:Emptying every trashes..."$ENDCOLOR
 rm -rf /home/*/.local/share/Trash/* &> /dev/null
 rm -rf /root/.local/share/Trash/* &> /dev/null
+
+echo -e $YELLOW"[Kali-cleaner]:Removing every cache files..."$ENDCOLOR
+rm -rf /home/*/.cache &> /dev/null
+rm -rf /root/.cache &> /dev/null
  
 echo -e $YELLOW"[Kali-cleaner]:Script Finished!"$ENDCOLOR
 echo -e
