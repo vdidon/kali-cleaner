@@ -11,7 +11,7 @@ echo -e
 echo -e
                                                                                                                                                                                                                                          
 OLDCONF=$(dpkg -l|grep "^rc"|awk '{print $2}')
-CURKERNEL=$(uname -r|sed 's/-*[a-z]//g'|sed 's/-386//g')
+CURKERNEL=$(uname -r|sed 's/-*[a-z]//g'|sed 's/-386//g'|cut -d. -f1-2)
 LINUXPKG="linux-(image|headers|debian-modules|restricted-modules)"
 METALINUXPKG="linux-(image|headers|restricted-modules)-(generic|i386|server|common|rt|xen)"
  
@@ -27,7 +27,7 @@ sudo aptitude clean
 echo -e $YELLOW"[Kali-cleaner]:Removing old config files..."$ENDCOLOR
 sudo aptitude purge $OLDCONF
 
-OLDKERNELS=$(dpkg -l|awk '{print $2}'|grep -E $LINUXPKG |grep -vE $METALINUXPKG|grep -v $(echo $CURKERNEL | cut -d. -f1-2))
+OLDKERNELS=$(dpkg -l|awk '{print $2}'|grep -E $LINUXPKG |grep -vE $METALINUXPKG|grep -v $CURKERNEL)
 echo -e $YELLOW"[Kali-cleaner]:Removing old kernels..."$ENDCOLOR
 sudo aptitude purge $OLDKERNELS
  
